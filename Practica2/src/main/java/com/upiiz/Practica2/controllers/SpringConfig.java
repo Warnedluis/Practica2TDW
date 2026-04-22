@@ -1,0 +1,65 @@
+package com.upiiz.Practica2.controllers;
+
+import com.upiiz.Practica2.services.UsuarioServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Lazy;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetailsPasswordService;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.SecurityFilterChain;
+
+@Configuration
+@EnableWebSecurity
+public class SpringConfig {
+
+    @Autowired
+    @Lazy
+    UsuarioServiceImpl usuarioServiceImpl;
+
+    @Bean
+    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+        http
+                .csrf(csrf -> csrf.disable()) // <--- AGREGA ESTA LÍNEA PARA DESCARTAR EL BLOQUEO
+                .authorizeHttpRequests(auth -> auth
+                        .requestMatchers("/auth/**", "/css/**", "/js/**", "/dist/**", "/plugins/**").permitAll()
+                        .anyRequest().authenticated()
+                )
+                .formLogin(login -> login
+                        .loginPage("/auth/RegistroUsuarios/login")
+                        .loginProcessingUrl("/auth/RegistroUsuarios/login")
+                        .defaultSuccessUrl("/TablasFormulariosLuis/MostrarTablaAutores" )
+                        .permitAll()
+                )
+                .logout(logout -> logout
+                        .logoutUrl("/logout")
+                        .logoutSuccessUrl("/auth/RegistroUsuarios/login?logout")
+                        .invalidateHttpSession(true)
+                        .clearAuthentication(true)
+                        .deleteCookies("JSESSIONID")
+                        .permitAll()
+                );
+
+        return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder()
+    {
+        return new BCryptPasswordEncoder();
+
+    }
+
+    @Bean
+    public DaoAuthenticationProvider authenticationProvider() {
+        DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider(usuarioServiceImpl);
+        authProvider.setPasswordEncoder(passwordEncoder());
+        return authProvider;
+    }
+
+
+}
