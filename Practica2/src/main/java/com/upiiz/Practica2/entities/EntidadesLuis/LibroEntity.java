@@ -56,7 +56,7 @@ public class LibroEntity {
 
     //Igual lo de los parentesis we
 
-    public void setId_libro(Long id_libro)
+    public void setId_Libro(Long id_Libro)
     {
         this.id_Libro = id_Libro;
     }
@@ -66,7 +66,7 @@ public class LibroEntity {
         this.Titulo_Libro = Titulo_Libro;
     }
 
-    public void setAnio_Publicacion_Libro(Integer anio_Publicacion_Libro)
+    public void setAnio_Publicacion_Libro(Integer Anio_Publicacion_Libro)
     {
         this.Anio_Publicacion_Libro = Anio_Publicacion_Libro;
     }

@@ -24,9 +24,9 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Rellena los datos para crear a un autor</p>
 
-      <form th:action="@{/CrearAutor}" method="post">
+      <form th:action="@{/TablasFormulariosLuis/CrearAutor}" th:object = "${autor}" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre">
+          <input type="text" class="form-control" th:field="*{Nombre_Autor}" placeholder="Nombre">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nacionalidad">
+          <input type="text" class="form-control" th:field = "*{Nacionalidad_Autor}" placeholder="Nacionalidad">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>

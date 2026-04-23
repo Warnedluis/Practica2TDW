@@ -32,7 +32,7 @@ public class AutorController {
     {
         autorServiceImpl.crearAutor(autor);
         // ARREGLO 2: Le pusimos la ruta completa para que encuentre la tabla
-        return "redirect:/TablasFormulariosLuis/TablasAutores";
+        return "redirect:/TablasFormulariosLuis/MostrarTablaAutores";
     }
 
     //Read - R
@@ -41,7 +41,7 @@ public class AutorController {
     {
         List<AutorEntity> listadoAutores = autorServiceImpl.listarAutores();
         model.addAttribute("autores", listadoAutores);
-        return "/TablasFormulariosLuis/TablasAutores";
+        return "TablasFormulariosLuis/TablasAutores";
     }
 
     //Upadte - U
@@ -51,15 +51,15 @@ public class AutorController {
     {
         Optional<AutorEntity> autor = autorServiceImpl.getAutorPorId(id_Autor);
         model.addAttribute("autor", autor);
-        return "/TablasFormulariosLuis/FormularioActualizarAutor";
+        return "TablasFormulariosLuis/FormularioActualizarAutor";
     }
 
     // ARREGLO 4: Le pusimos nombre diferente al post para que no nos valla a dar error we
-    @PostMapping("/GuardarActualizacionAutor")
+    @PostMapping("/ActualizarAutor")
     public String actualizarAutor(@ModelAttribute AutorEntity autor)
     {
         autorServiceImpl.actualizarAutor(autor);
-        return "redirect:/Autor/TablasAutores";
+        return "redirect:/TablasFormulariosLuis/MostrarTablaAutores";
     }
 
     //Delete - D
@@ -68,6 +68,6 @@ public class AutorController {
     public String eliminarAutor(@PathVariable Long id_Autor)
     {
         autorServiceImpl.eliminarAutor(id_Autor);
-        return "redirect:/TablasFormulariosLuis/TablasAutores";
+        return "redirect:/TablasFormulariosLuis/MostrarTablaAutores";
     }
 }

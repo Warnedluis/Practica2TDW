@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th = "http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -32,127 +32,6 @@
         <a href="#" class="nav-link">Contact</a>
       </li>
     </ul>
-
-    <!-- Right navbar links -->
-    <ul class="navbar-nav ml-auto">
-      <!-- Navbar Search -->
-      <li class="nav-item">
-        <a class="nav-link" data-widget="navbar-search" href="#" role="button">
-          <i class="fas fa-search"></i>
-        </a>
-        <div class="navbar-search-block">
-          <form class="form-inline">
-            <div class="input-group input-group-sm">
-              <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
-              <div class="input-group-append">
-                <button class="btn btn-navbar" type="submit">
-                  <i class="fas fa-search"></i>
-                </button>
-                <button class="btn btn-navbar" type="button" data-widget="navbar-search">
-                  <i class="fas fa-times"></i>
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </li>
-
-      <!-- Messages Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-comments"></i>
-          <span class="badge badge-danger navbar-badge">3</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Brad Diesel
-                  <span class="float-right text-sm text-danger"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">Call me whenever you can...</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  John Pierce
-                  <span class="float-right text-sm text-muted"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">I got your message bro</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <!-- Message Start -->
-            <div class="media">
-              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
-              <div class="media-body">
-                <h3 class="dropdown-item-title">
-                  Nora Silvester
-                  <span class="float-right text-sm text-warning"><i class="fas fa-star"></i></span>
-                </h3>
-                <p class="text-sm">The subject goes here</p>
-                <p class="text-sm text-muted"><i class="far fa-clock mr-1"></i> 4 Hours Ago</p>
-              </div>
-            </div>
-            <!-- Message End -->
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
-        </div>
-      </li>
-      <!-- Notifications Dropdown Menu -->
-      <li class="nav-item dropdown">
-        <a class="nav-link" data-toggle="dropdown" href="#">
-          <i class="far fa-bell"></i>
-          <span class="badge badge-warning navbar-badge">15</span>
-        </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-          <span class="dropdown-item dropdown-header">15 Notifications</span>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-users mr-2"></i> 8 friend requests
-            <span class="float-right text-muted text-sm">12 hours</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item">
-            <i class="fas fa-file mr-2"></i> 3 new reports
-            <span class="float-right text-muted text-sm">2 days</span>
-          </a>
-          <div class="dropdown-divider"></div>
-          <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
-        </div>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="fullscreen" href="#" role="button">
-          <i class="fas fa-expand-arrows-alt"></i>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
-          <i class="fas fa-th-large"></i>
-        </a>
-      </li>
-    </ul>
   </nav>
   <!-- /.navbar -->
 
@@ -169,22 +48,10 @@
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../../dist/img/icono.png" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
-        </div>
-      </div>
-
-      <!-- SidebarSearch Form -->
-      <div class="form-inline">
-        <div class="input-group" data-widget="sidebar-search">
-          <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
-          <div class="input-group-append">
-            <button class="btn btn-sidebar">
-              <i class="fas fa-search fa-fw"></i>
-            </button>
-          </div>
+          <a href="#" class="d-block" sec:authentication="name"></a>
         </div>
       </div>
 
@@ -203,20 +70,31 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../../index.html" class="nav-link">
+                <a th:href="@{/TablasFormulariosLuis/MostrarTablaAutores} " class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Dashboard v1</p>
+                  <p>Mostrar autores</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/TablasFormulariosLuis/MostrarTablaLibros} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Mostrar libros</p>
                 </a>
               </li>
             </ul>
           </li>
-          <form th:action="@{/logout}" method="post" style="display: inline;">
-            <button type="submit" class="btn btn-danger">
-              <i class="fas fa-sign-out-alt"></i> Cerrar Sesión
+
+          <li class="nav-item menu-open">
+            <form th:action="@{/logout}" method="post" style="display: inline;">
+            <button type="submit" class="nav-link active">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                Cerrar Sesion
+                <i class="fas fa-angle-left right"></i>
+              </p>
             </button>
-          </form>
+            </form>
           </li>
-          </form>
 
 
           <li class="nav-item menu-open">
@@ -229,12 +107,21 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="../tables/simple.html" class="nav-link">
+                <a th:href="@{/TablasFormulariosLuis/MostrarFormularioCrearAutor} " class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Simple Tables</p>
+                  <p>Crear un autor</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a th:href="@{/TablasFormulariosLuis/MostrarFormularioCrearLibro} " class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Crear un libro</p>
                 </a>
               </li>
             </ul>
+
+
+
         </ul>
       </nav>
       <!-- /.sidebar-menu -->
@@ -249,12 +136,12 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>DataTables</h1>
+            <h1>Tabla de autores</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item active">DataTables</li>
+              <li class="breadcrumb-item active">Tabla de los autores</li>
             </ol>
           </div>
         </div>
@@ -268,7 +155,7 @@
           <div class="col-12">
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with minimal features & hover style</h3>
+                <h3 class="card-title">Tabla de los autores</h3>
               </div>
               <!-- /.card-header -->
 
@@ -276,21 +163,27 @@
 
             <div class="card">
               <div class="card-header">
-                <h3 class="card-title">DataTable with default features</h3>
+                <h3 class="card-title">Tabla de los autores</h3>
               </div>
               <!-- /.card-header -->
               <div class="card-body">
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tbody>
-                  <tr th:each="Autor : ${autor}">
-                    <td th:text = "${autor.id_Autor}"></td>
-                    <td th:text = "${autor.NombreAutor}"></td>
-                    <td th:text = "${autor.Nacionalidad}"></td>
+                <tr>
+                  <td>Id</td>
+                  <td>Nombre</td>
+                  <td>Nacionalidad</td>
+                  <td>Opciones</td>
+                </tr>
+                  <tr th:each="Autor : ${autores}">
+                    <td th:text = "${Autor.getId_Autor()}"></td>
+                    <td th:text = "${Autor.Nombre_Autor}"></td>
+                    <td th:text = "${Autor.Nacionalidad_Autor}"></td>
 
                     <td>
-                      <a th:href = "@{'/TablasFormulariosLuis/formulario-actualizar-autor/'+${autor.getId_autor()}}">Actualizar</a>
-                      <a th:href = "@{'/TablasFormulariosLuis/Eliminar/'+${jugador.getId_Autor()}}">Eliminar Autor</a>
+                      <a th:href = "@{'/TablasFormulariosLuis/MostrarFormularioActualizarAutor/'+${Autor.getId_Autor()}}">Actualizar</a>
+                      <a th:href = "@{'/TablasFormulariosLuis/EliminarAutor/'+${Autor.getId_Autor()}}">Eliminar Autor</a>
                     </td>
                   </tr>
                   </tbody>
@@ -314,7 +207,7 @@
     <div class="float-right d-none d-sm-block">
       <b>Version</b> 3.2.0
     </div>
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong> All rights reserved.
+    <strong>Copyright &copy; 2026 <a href="https://adminlte.io">Practica2 TDW</a>.</strong> All rights reserved.
   </footer>
 
   <!-- Control Sidebar -->

@@ -12,7 +12,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Controller
-@RequestMapping("/Libro")
+@RequestMapping("/TablasFormulariosLuis")
 public class LibroController {
 
     @Autowired
@@ -24,12 +24,12 @@ public class LibroController {
 
     //Generamos el metodo get para traer un molde vacio de lo que es el servicio a generar
 
-    @GetMapping("/Autor/Crear")
+    @GetMapping("/MostrarFormularioCrearLibro")
     public String mostrarFormularioCrearLibro(Model model)
     {
         LibroEntity libro = new LibroEntity();
-        model.addAttribute(libro);
-        return "formulario-crear-libro";
+        model.addAttribute("libro",libro);
+        return "TablasFormulariosLuis/FormularioCrearLibro";
     }
 
     //Ahora generamos lo que es el metodo post
@@ -37,48 +37,45 @@ public class LibroController {
     public String crearLibro(@ModelAttribute LibroEntity libro)
     {
         libroServiceImpl.crearLibro(libro);
-
-        return "redirect:/TablasLibros";
+        return "redirect:/TablasFormulariosLuis/MostrarTablaLibros";
     }
 
     //R - Read
 
-    @GetMapping("/Autor/TablasLibros")
-    public String listarAutores(Model model)
+    @GetMapping("/MostrarTablaLibros")
+    public String listarLibros(Model model)
     {
         List<LibroEntity> listaLibros = libroServiceImpl.listarLibros();
         model.addAttribute("libros", listaLibros);
 
-        return "TablaLibros";
+        return "TablasFormulariosLuis/TablasLibros";
     }
 
     //U - Update
 
-    @GetMapping("/Libro/Actualizar/{id_Libro}")
+    @GetMapping("/MostrarFormularioActualizarLibro/{id_Libro}")
     public String mostrarFormularioActualizarLibros(@PathVariable Long id_Libro, Model model)
     {
         Optional<LibroEntity> libro = libroServiceImpl.getLibroPorId(id_Libro);
         model.addAttribute("libro", libro);
-        return "formulario-actualizar-libro";
+        return "TablasFormulariosLuis/FormularioActualizarLibro";
     }
 
     //Creamos el metodo post
-    @PostMapping("/GuardarActualizacionLibro")
+    @PostMapping("/ActualizarLibro")
     public String actualizarLibro(@ModelAttribute LibroEntity libro)
     {
         libroServiceImpl.actualizarLibro(libro);
-        return "redirect:/TablaLibros";
+        return "redirect:/TablasFormulariosLuis/MostrarTablaLibros";
     }
 
     //D - Delete
 
-    @GetMapping("/Libro/Borrar")
-    public void borrarLibro(@PathVariable Long id_Libro)
+    @GetMapping("/EliminarLibro/{id_Libro}")
+    public String borrarLibro(@PathVariable Long id_Libro)
     {
         libroServiceImpl.borrarLibro(id_Libro);
+        return "redirect:/TablasFormulariosLuis/MostrarTablaLibros";
     }
-
-
-
 
 }

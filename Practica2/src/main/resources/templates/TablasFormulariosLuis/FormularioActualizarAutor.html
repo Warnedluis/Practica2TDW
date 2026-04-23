@@ -24,9 +24,17 @@
     <div class="card-body login-card-body">
       <p class="login-box-msg">Formulario para actualizar a un autor</p>
 
-      <form action="/GuardarActualizacionAutor" method="post">
+      <form th:action="@{/TablasFormulariosLuis/ActualizarAutor}" th:object="${autor}" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre">
+          <input type="text" class="form-control" th:field = "*{id_Autor}" placeholder="id_Autor" readonly>
+          <div class="input-group-append">
+            <div class="input-group-text">
+              <span class="fas fa-lock"></span>
+            </div>
+          </div>
+        </div>
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" th:field = "*{Nombre_Autor}" placeholder="Nombre">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-envelope"></span>
@@ -34,7 +42,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nacionalidad">
+          <input type="text" class="form-control" th:field = "*{Nacionalidad_Autor}" placeholder="Nacionalidad">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -51,7 +59,7 @@
       </form>
 
       <p class="mb-1">
-        <a href="/MostrarTablaAutores">Volver al inicio</a>
+        <a th:href="@{/TablasFormulariosLuis/MostrarTablaAutores}">Volver al inicio</a>
       </p>
     </div>
     <!-- /.login-card-body -->

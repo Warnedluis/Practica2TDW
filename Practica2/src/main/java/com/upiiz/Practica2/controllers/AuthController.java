@@ -5,6 +5,7 @@ import com.upiiz.Practica2.entities.UsuarioEntity;
 import com.upiiz.Practica2.services.UsuarioServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -23,7 +24,7 @@ public class AuthController {
     @Autowired
     UsuarioServiceImpl usuarioServiceImpl;
 
-    @PostMapping("/RegistroUsuarios/register")
+    @PostMapping("/RegistrarUsuario")
     public String guardarUsuario(@ModelAttribute UsuarioEntity usuario)
     {
         usuarioServiceImpl.guardarUsuario(usuario);
@@ -37,8 +38,10 @@ public class AuthController {
     }
 
     @GetMapping("/RegistroUsuarios/register")
-    public String register()
+    public String register(Model model)
     {
+        UsuarioEntity usuario = new UsuarioEntity();
+        model.addAttribute("usuario", new UsuarioEntity());
         return "RegistroUsuarios/register";
     }
 

@@ -24,9 +24,9 @@
     <div class="card-body register-card-body">
       <p class="login-box-msg">Registra a un nuevo usuario</p>
 
-      <form th:action="@{/auth/RegistroUsuarios/register}" method="post">
+      <form th:action="@{/auth/RegistrarUsuario}" th:object="${usuario}" method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Nombre">
+          <input type="text" class="form-control" th:field="*{nombre}" placeholder="Nombre">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-user"></span>
@@ -34,7 +34,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Primer apellido">
+          <input type="text" class="form-control" th:field="*{primerApellido}" placeholder="Primer apellido">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
@@ -42,7 +42,7 @@
           </div>
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Segundo apellido">
+          <input type="text" class="form-control" th:field="*{segundoApellido}" placeholder="Segundo apellido">
           <div class="input-group-append">
             <div class="input-group-text">
               <span class="fas fa-lock"></span>
