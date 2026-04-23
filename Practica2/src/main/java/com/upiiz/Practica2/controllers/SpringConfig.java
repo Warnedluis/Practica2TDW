@@ -32,7 +32,7 @@ public class SpringConfig {
                 .formLogin(login -> login
                         .loginPage("/auth/RegistroUsuarios/login")
                         .loginProcessingUrl("/auth/RegistroUsuarios/login")
-                        .defaultSuccessUrl("/TablasFormulariosLuis/MostrarTablaAutores" )
+                        .defaultSuccessUrl("/home/MostrarInicio" )
                         .permitAll()
                 )
                 .logout(logout -> logout
