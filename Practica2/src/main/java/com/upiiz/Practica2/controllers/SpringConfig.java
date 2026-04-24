@@ -32,15 +32,12 @@ public class SpringConfig {
                 .formLogin(login -> login
                         .loginPage("/auth/RegistroUsuarios/login")
                         .loginProcessingUrl("/auth/RegistroUsuarios/login")
-                        .defaultSuccessUrl("/home/MostrarInicio" )
+                        .defaultSuccessUrl("/home/MostrarInicio", true)
                         .permitAll()
                 )
                 .logout(logout -> logout
                         .logoutUrl("/logout")
                         .logoutSuccessUrl("/auth/RegistroUsuarios/login?logout")
-                        .invalidateHttpSession(true)
-                        .clearAuthentication(true)
-                        .deleteCookies("JSESSIONID")
                         .permitAll()
                 );
 
