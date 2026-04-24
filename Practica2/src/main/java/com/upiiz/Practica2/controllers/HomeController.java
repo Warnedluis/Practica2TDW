@@ -21,7 +21,6 @@ public class HomeController {
 
     @GetMapping("/MostrarInicio")
     public String mostrarInicio(Model model) {
-        // AQUÍ ESTÁ LA MAGIA: Le pasamos las listas al HTML
         model.addAttribute("listaAutores", autorService.listarAutores());
         model.addAttribute("listaLibros", libroService.listarLibros());
 
