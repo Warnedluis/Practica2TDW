@@ -24,7 +24,8 @@ public class SpringConfig {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
-                .csrf(csrf -> csrf.disable()) // <--- AGREGA ESTA LÍNEA PARA DESCARTAR EL BLOQUEO
+                .csrf(csrf -> csrf.disable())
+                .requiresChannel(channel -> channel.anyRequest().requiresInsecure())// <--- AGREGA ESTA LÍNEA PARA DESCARTAR EL BLOQUEO
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**", "/css/**", "/js/**", "/dist/**", "/plugins/**").permitAll()
                         .anyRequest().authenticated()
