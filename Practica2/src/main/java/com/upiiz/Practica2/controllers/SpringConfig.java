@@ -25,7 +25,6 @@ public class SpringConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
-                .requiresChannel(channel -> channel.anyRequest().requiresInsecure())
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/auth/**", "/css/**", "/js/**", "/dist/**", "/plugins/**").permitAll()
                         .anyRequest().authenticated()
